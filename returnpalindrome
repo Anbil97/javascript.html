@@ -1,0 +1,28 @@
+// Function to check if a string is a palindrome
+function isPalindrome(str) {
+  // Remove non-alphanumeric characters and convert to lowercase
+  const cleanStr = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+  
+  // Compare the original string with its reverse
+  return cleanStr === cleanStr.split('').reverse().join('');
+}
+
+// Function to return all palindromes in an array
+function findPalindromes(arr) {
+  const palindromes = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (isPalindrome(arr[i])) {
+      palindromes.push(arr[i]);
+    }
+  }
+  return palindromes;
+}
+
+// Sample array of strings
+const words = ["radar", "hello", "level", "world", "deified", "12321"];
+
+// Call the function to find palindromes in the array
+const palindromeWords = findPalindromes(words);
+
+// Print the palindrome words
+console.log(palindromeWords);
